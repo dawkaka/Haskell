@@ -71,8 +71,8 @@ multiCompose [] x = x
 multiCompose (f:fs) x = f (multiCompose fs x)
 
 multiApp :: ([a] -> a) -> [a -> a] -> a -> a
+multiApp f [] x = []
 multiApp f gs x = f (map (\g' -> g' x) gs)
-
 
 
 main = do
