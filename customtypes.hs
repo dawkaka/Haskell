@@ -67,4 +67,4 @@ main = do
     print $ lookUP tree 10
     print $ sumListInt lis
     print $ filterByProfession "Software Engineer" people 
-    print $ dk [1,2,3,4]jhyu
+    print $ dk [1,2,3,4]
