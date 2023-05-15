@@ -1,6 +1,6 @@
 module Main where
 
-import Control.Monad
+import Control.Monad (forM_)
 import Network.HTTP
 
 main = do
