@@ -24,6 +24,17 @@ questionaire (q : qs) = do
     sb <- questionaire qs
     return (res : sb)
 
+choice :: IO x -> IO x -> IO x
+choice a b = do
+    putStrLn "A or B"
+    x <- getLine
+    case x of
+        "A" -> a
+        "B" -> b
+        _ -> do
+            putStrLn "Wrong!!"
+            choice a b
+
 main :: IO ()
 main = do
     putStrLn "Enter something"
@@ -34,4 +45,5 @@ main = do
     print v
     v <- questionaire ["How are you ?", "What is your name?", "How old are you?"]
     print v
+    choice (putStrLn "AAAAA!!!") (putStrLn "BBBB!!!")
     return ()
