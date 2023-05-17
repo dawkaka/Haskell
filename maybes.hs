@@ -19,6 +19,17 @@ revealSecrete password = case login password of
         Just v -> Just ("Stole a screte: " ++ v)
 
 -- with chaining operator
+(?>) :: Maybe a -> (a -> Maybe a) -> Maybe a
+(?>) Nothing _ = Nothing
+(?>) (Just v) f = f v
+
+revealWithChain :: String -> Maybe String
+revealWithChain password =
+    login password
+        ?> secrete
+        ?> decorate
+  where
+    decorate s = Just ("Stole secret: " ++ s)
 
 main = do
     print "hello"
