@@ -31,6 +31,14 @@ revealWithChain password =
   where
     decorate s = Just ("Stole secret: " ++ s)
 
+addMaybe :: Maybe Int -> Maybe Int -> Maybe Int
+addMaybe ma mb = (*) <$> ma <*> mb
+
+result :: Maybe Int
+result = addMaybe (Just 3) (Just 4)
+
 main = do
     print "hello"
-    print $ revealSecrete "dawkaka"
+    print $ revealWithChain "dawkaka"
+
+    print result
